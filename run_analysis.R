@@ -93,8 +93,6 @@ for (i in nrow(rawdata.full)) {
         rawdata.full$Activity <- activities[activity.code,2]
 }
 
-
-
 #### Group the data by Subject and then Activity
 rawdata.group<-group_by(rawdata.full,Subject,Activity)
 
@@ -103,9 +101,9 @@ rawdata.group<-group_by(rawdata.full,Subject,Activity)
 tidy.data<-summarise_each(rawdata.group,funs(mean))
 
 #### Write to a "tidy data" file as a text file
-write.table(tidy.data,file="data/Tidy_Data.txt")
+write.table(tidy.data,file="data/Tidy_Data.txt",row.names = FALSE)
 #### Write to a "tidy data" file as a .csv file
-write.csv(tidy.data,file="data/Tidy_Data.csv")
+write.csv(tidy.data,file="data/Tidy_Data.csv",row.names = FALSE)
 
 
 
