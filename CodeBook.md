@@ -30,8 +30,10 @@ The Tidy Data set was created by running an R script called run_analysis.R over 
 ####”Subject"
 * Type: Integer, range: 1-30
 * Id for person performing activities
+
 ####”Activity"
 * Type: Character, values:WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+
 ####”tBodyAcc.mean.X”
 * Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
 * The mean of values for body acceleration signal on the X-axis for a particular subject for a particular activity.
