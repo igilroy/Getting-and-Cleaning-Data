@@ -2,13 +2,159 @@
 
 ##Overview
 ###Study Design
-“The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+The raw data used to create this Tidy Data set was obtained from experiments carried out with a group of 30 volunteers,aged 19-48 years. 
+
+Each person, or “subject”, performed six activities (labelled: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on their waist. 
+
+The embedded accelerometer and gyroscope, were used to capture 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. 
+
+The resulting data was then randomly divided into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.”
 
 ref: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones# 
 
-The dataset includes the following files  (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#) :
+##Data Dictionary: Tidy Data
+
+###How the Raw Data was Processed
+
+The Tidy Data set was created by running an R script called run_analysis.R over the Raw Data files, which does the following: 
+*Merges the training and the test sets to create one data set.
+*Extracts only the measurements on the mean and standard deviation for each measurement. 
+*Uses descriptive activity names to name the activities in the data set
+*Appropriately labels the data set with descriptive variable names. 
+*Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+###Description of Variables in Tidy Data
+
+*”Subject"
+** Type: Integer, range: 1-30
+** Id for person performing activities
+*”Activity"
+** Type: Character, values:WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+*”tBodyAcc.mean.X”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The mean of values for body acceleration signal on the X-axis for a particular subject for a particular activity.
+*”tBodyAcc.mean.Y”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The mean of values for body acceleration signal on the Y-axis for a particular subject for a particular activity.
+*”tBodyAcc.mean.Z” 
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The mean of values for body acceleration signal on the Z-axis for a particular subject for a particular activity.                  
+*”tBodyAcc.std.X”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The standard deviation of values for body acceleration signal  on the X-axis for a particular subject for a particular activity.
+*”tBodyAcc.std.Y”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The standard deviation of values for body acceleration signal  on the Y-axis for a particular subject for a particular activity.
+*”tBodyAcc.std.Z”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The standard deviation of values for body acceleration signal  on the Z-axis for a particular subject for a particular activity.
+*”tGravityAcc.mean.X”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The mean of values for gravity acceleration signal on the X-axis for a particular subject for a particular activity.
+*”tGravityAcc.mean.Y”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The mean of values for gravity acceleration signal on the Y-axis for a particular subject for a particular activity.
+*”tGravityAcc.mean.Z”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The mean of values for gravity acceleration signal on the Z-axis for a particular subject for a particular activity.
+*”tGravityAcc.std.X”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The standard deviation of values for gravity acceleration signal on the X-axis for a particular subject for a particular activity.
+*”tGravityAcc.std.Y”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The standard deviation of values for gravity acceleration signal on the Y-axis for a particular subject for a particular activity.
+*”tGravityAcc.std.Z”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The standard deviation of values for gravity acceleration signal on the Z-axis for a particular subject for a particular activity.
+*”tBodyAccJerk.mean.X”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The mean of values for “jerk” acceleration signal on the X-axis for a particular subject for a particular activity.
+*”tBodyAccJerk.mean.Y”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The mean of values for “jerk” acceleration signal on the Y-axis for a particular subject for a particular activity.
+*”tBodyAccJerk.mean.Z”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The mean of values for “jerk” acceleration signal on the Z-axis for a particular subject for a particular activity.
+*”tBodyAccJerk.std.X”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The standard deviation of values for “jerk” acceleration signal on the X-axis for a particular subject for a particular activity.
+*”tBodyAccJerk.std.Y”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The standard deviation of values for “jerk” acceleration signal on the Y-axis for a particular subject for a particular activity.
+*”tBodyAccJerk.std.Z”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The standard deviation of values for “jerk” acceleration signal on the Z-axis for a particular subject for a particular activity.
+*”tBodyGyro.mean.X”
+** Type: Numeric, Units: radians, Range: -1.0 < x < 1.0
+** The mean of values for angular velocity vector on the X-axis for a particular subject for a particular activity.
+*”tBodyGyro.mean.Y”
+** Type: Numeric, Units: radians, Range: -1.0 < x < 1.0
+** The mean of values for angular velocity vector on the Y-axis for a particular subject for a particular activity.
+*”tBodyGyro.mean.Z”
+** Type: Numeric, Units: radians, Range: -1.0 < x < 1.0
+** The mean of values for angular velocity vector on the Z-axis for a particular subject for a particular activity.
+"tBodyGyro.std.X”
+** Type: Numeric, Units: radians, Range: -1.0 < x < 1.0
+** The standard deviation of values for angular velocity vector on the X-axis for a particular subject for a particular activity.
+*”tBodyGyro.std.Y”
+** Type: Numeric, Units: radians, Range: -1.0 < x < 1.0
+** The standard deviation of values for angular velocity vector on the Y-axis for a particular subject for a particular activity.
+*”tBodyGyro.std.Z”
+** Type: Numeric, Units: radians, Range: -1.0 < x < 1.0
+** The standard deviation of values for angular velocity vector on the Z-axis for a particular subject for a particular activity. 
+*”tBodyGyroJerk.mean.X”
+** Type: Numeric, Units: radians, Range: -1.0 < x < 1.0
+** The mean of values for angular “jerk” velocity vector on the X-axis for a particular subject for a particular activity.
+*”tBodyGyroJerk.mean.Y”
+** Type: Numeric, Units: radians, Range: -1.0 < x < 1.0
+** The mean of values for angular “jerk” velocity vector on the Y-axis for a particular subject for a particular activity.
+*”tBodyGyroJerk.mean.Z”
+** Type: Numeric, Units: radians, Range: -1.0 < x < 1.0
+** The mean of values for angular “jerk” velocity vector on the Z-axis for a particular subject for a particular activity.
+"tBodyGyroJerk.std.X”
+** Type: Numeric, Units: radians, Range: -1.0 < x < 1.0
+** The standard deviation of values for angular “jerk” velocity vector on the X-axis for a particular subject for a particular activity.
+*”tBodyGyroJerk.std.Y”
+** Type: Numeric, Units: radians, Range: -1.0 < x < 1.0
+** The standard deviation of values for angular “jerk” velocity vector on the Y-axis for a particular subject for a particular activity.
+*”tBodyGyroJerk.std.Z”
+** Type: Numeric, Units: radians, Range: -1.0 < x < 1.0
+** The standard deviation of values for angular “jerk” velocity vector on the Z-axis for a particular subject for a particular activity.
+*”tBodyAccMag.mean.”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The mean of magnitude of values for body acceleration signal on the X-,Y- and Z-axis for a particular subject for a particular activity.
+*”tBodyAccMag.std.”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The standard deviation of magnitude of values for body acceleration signal on the X-,Y- and Z-axis for a particular subject for a particular activity.
+*”tGravityAccMag.mean.”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The mean of magnitude of values for gravity acceleration signal on the X-,Y- and Z-axis for a particular subject for a particular activity.
+*”tGravityAccMag.std.”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The standard deviation of magnitude of values for gravity acceleration signal on the X-,Y- and Z-axis for a particular subject for a particular activity.
+*”tBodyAccJerkMag.mean.”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The mean of magnitude of values for “jerk” acceleration signal on the X-,Y- and Z-axis for a particular subject for a particular activity.
+*”tBodyAccJerkMag.std.”
+** Type: Numeric, Units: standard gravity units ‘g’, Range: -1.0 < x < 1.0
+** The standard deviation of magnitude of values for “jerk” acceleration signal on the X-,Y- and Z-axis for a particular subject for a particular activity.
+*”tBodyGyroMag.mean.”
+** Type: Numeric, Units: radians Range: -1.0 < x < 1.0
+** The mean of magnitude of values for angular velocity signal on the X-,Y- and Z-axis for a particular subject for a particular activity.
+*”tBodyGyroMag.std.”
+** Type: Numeric, Units: radians Range: -1.0 < x < 1.0
+** The standard deviation of magnitude of values for angular velocity signal on the X-,Y- and Z-axis for a particular subject for a particular activity.
+*”tBodyGyroJerkMag.mean.”
+** Type: Numeric, Units: radians Range: -1.0 < x < 1.0
+** The mean of magnitude of values for angular “jerk” velocity signal on the X-,Y- and Z-axis for a particular subject for a particular activity.
+*”tBodyGyroJerkMag.std.” 
+** Type: Numeric, Units: radians Range: -1.0 < x < 1.0
+** The standard deviation of magnitude of values for angular “jerk” velocity signal on the X-,Y- and Z-axis for a particular subject for a particular activity.
+
+##Further information on the Raw Data
+The dataset can be found at “http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#”, and includes the following files:
 
 * ’README.txt'
 * ’features_info.txt': Shows information about the variables used on the feature vector.
@@ -26,7 +172,6 @@ The following files are available for the train and test data. Their description
 * ’train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
 * ’train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
 
-##Data Dictionary: Raw Data
 ###Attribute Information:
 Data set is multivariate, time series data.
 There are 10299 instances or records.
@@ -101,20 +246,5 @@ Additional vectors obtained by averaging the signals in a signal window sample. 
 * tBodyGyroJerkMean
 
 Notes: 
-* Features are normalized and bounded within [-1,1].
+* Features are normalised and bounded within [-1,1].
 * Each feature vector is a row on the text file.
-
-###Description of Variables in Raw Data (including units)
-
-
-
-
-
-##Data Dictionary: Tidy Data
-
-
-###How the Raw Data was Processed
-
-###Description of Variables in Tidy Data (including units)
-
-
